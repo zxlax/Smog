@@ -1,0 +1,11 @@
+C:\Users\user\source\repos\SmogInfo\SmogInfo\bin\Debug\netcoreapp2.0\SmogInfo.deps.json
+C:\Users\user\source\repos\SmogInfo\SmogInfo\bin\Debug\netcoreapp2.0\SmogInfo.runtimeconfig.json
+C:\Users\user\source\repos\SmogInfo\SmogInfo\bin\Debug\netcoreapp2.0\SmogInfo.runtimeconfig.dev.json
+C:\Users\user\source\repos\SmogInfo\SmogInfo\bin\Debug\netcoreapp2.0\SmogInfo.dll
+C:\Users\user\source\repos\SmogInfo\SmogInfo\bin\Debug\netcoreapp2.0\SmogInfo.pdb
+C:\Users\user\source\repos\SmogInfo\SmogInfo\obj\Debug\netcoreapp2.0\SmogInfo.csprojResolveAssemblyReference.cache
+C:\Users\user\source\repos\SmogInfo\SmogInfo\obj\Debug\netcoreapp2.0\SmogInfo.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\SmogInfo\SmogInfo\obj\Debug\netcoreapp2.0\SmogInfo.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\SmogInfo\SmogInfo\obj\Debug\netcoreapp2.0\SmogInfo.AssemblyInfo.cs
+C:\Users\user\source\repos\SmogInfo\SmogInfo\obj\Debug\netcoreapp2.0\SmogInfo.dll
+C:\Users\user\source\repos\SmogInfo\SmogInfo\obj\Debug\netcoreapp2.0\SmogInfo.pdb
