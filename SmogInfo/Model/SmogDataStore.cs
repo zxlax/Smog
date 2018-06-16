@@ -9,13 +9,13 @@ namespace SmogInfo.Model
     {
         public static SmogDataStore Current { get; } = new SmogDataStore();
 
-        public List<SmogDto> Cities { get; set; }
+        public List<CitiesDto> Cities { get; set; }
 
         public SmogDataStore()
         {
-            Cities = new List<SmogDto>()
+            Cities = new List<CitiesDto>()
             {
-                new SmogDto()
+                new CitiesDto()
                 {
                     ID =1,
                     CityName = "Warszawa",
@@ -25,12 +25,44 @@ namespace SmogInfo.Model
                          {
                              ID = 1,
                              StreetName ="Aleje Jerozolimskie",
-                             PM10Concentration = 44.5m
+                               SmogLevels =
+                             {
+                                 new SmogLevel
+                                 {
+                                     DateTime = new DateTime(2018,6,16,17,20,10),
+                                     PM10Concentration = 26.5m
+
+                                 },
+
+                                  new SmogLevel
+                                 {
+                                     DateTime = new DateTime(2018,6,16,19,20,10),
+                                     PM10Concentration = 15.25m
+
+                                 }
+                             }
+
+                         },
+
+                          new StationPointDto
+                         {
+                             ID = 2,
+                             StreetName ="plac Bankowy",
+                               SmogLevels =
+                             {
+                                 new SmogLevel
+                                 {
+                                     DateTime = new DateTime(2018,6,16,17,20,10),
+                                     PM10Concentration = 13.5m
+
+                                 }
+                             }
+
                          }
                      }
 
                 },
-                 new SmogDto()
+                 new CitiesDto()
                 {
                     ID =2,
                     CityName = "Kraków",
@@ -40,7 +72,15 @@ namespace SmogInfo.Model
                          {
                              ID = 1,
                              StreetName ="Warszawska",
-                             PM10Concentration = 74.25m
+                             SmogLevels =
+                             {
+                                 new SmogLevel
+                                 {
+                                     DateTime = new DateTime(2018,6,16,17,20,10),
+                                     PM10Concentration = 46.5m
+                                     
+                                 }
+                             }
                          }
                      }
 

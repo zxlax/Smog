@@ -11,7 +11,7 @@ namespace SmogInfo.Model
 
         public string StreetName { get; set; }
 
-        public decimal PM10Concentration { get; set; }
+        public ICollection<SmogLevel> SmogLevels { get; set; } = new List<SmogLevel>();
 
 
 

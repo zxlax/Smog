@@ -13,7 +13,7 @@ namespace SmogInfo.Controllers
     { 
 
         [HttpGet("{cityId}/smogStation")]
-        public IActionResult GetStation(int cityId)
+        public IActionResult GetStations(int cityId)
         {
             var city = SmogDataStore.Current.Cities.FirstOrDefault(i => i.ID == cityId);
             if (city == null) return NotFound();

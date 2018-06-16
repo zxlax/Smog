@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SmogInfo.Model
 {
-    public class SmogDto
+    public class CitiesDto
     {
         public int ID { get; set; }
 
