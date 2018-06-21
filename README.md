@@ -20,3 +20,7 @@ api/cities/{cityid}/smogstation/{stationid}
 return PM10 level in station by city id and station id
 
 api/cities/{cityid}/smogstation/{stationid}/level
+
+
+First deploy with working controllers and data model:
+https://hardy-ivy-207617.appspot.com
