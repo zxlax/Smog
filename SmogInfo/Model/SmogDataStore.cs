@@ -27,14 +27,14 @@ namespace SmogInfo.Model
                              StreetName ="Aleje Jerozolimskie",
                                SmogLevels =
                              {
-                                 new SmogLevel
+                                 new SmogLevelDto
                                  {
                                      DateTime = new DateTime(2018,6,16,17,20,10),
                                      PM10Concentration = 26.5m
 
                                  },
 
-                                  new SmogLevel
+                                  new SmogLevelDto
                                  {
                                      DateTime = new DateTime(2018,6,16,19,20,10),
                                      PM10Concentration = 15.25m
@@ -50,7 +50,7 @@ namespace SmogInfo.Model
                              StreetName ="plac Bankowy",
                                SmogLevels =
                              {
-                                 new SmogLevel
+                                 new SmogLevelDto
                                  {
                                      DateTime = new DateTime(2018,6,16,17,20,10),
                                      PM10Concentration = 13.5m
@@ -74,7 +74,7 @@ namespace SmogInfo.Model
                              StreetName ="Warszawska",
                              SmogLevels =
                              {
-                                 new SmogLevel
+                                 new SmogLevelDto
                                  {
                                      DateTime = new DateTime(2018,6,16,17,20,10),
                                      PM10Concentration = 46.5m

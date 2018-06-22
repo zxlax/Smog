@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SmogInfo.Model
 {
-    public class SmogLevel
+    public class SmogLevelDto
     {
         public DateTime DateTime { get; set; }
 
