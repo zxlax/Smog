@@ -53,6 +53,13 @@ namespace SmogInfo
             }
 
             app.UseStatusCodePages();
+            AutoMapper.Mapper.Initialize(cfg => {
+                cfg.CreateMap<Entities.City, Model.CitiesWithoutStationsDto>();
+                cfg.CreateMap<Entities.City, Model.CitiesDto>();
+                cfg.CreateMap<Entities.StationPoint, Model.StationPointDto>();
+                cfg.CreateMap<Entities.SmogLevel, Model.SmogLevelDto>();
+                cfg.CreateMap<Model.SmogLevelForCreateDto, Entities.SmogLevel>();
+                });
             app.UseMvc();
 
             //app.Run(async (context) =>

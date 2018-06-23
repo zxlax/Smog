@@ -15,6 +15,13 @@ namespace SmogInfo.Services
             _context = context;
         }
 
+        public void AddSmogLevel(int cityId, int stationId, SmogLevel smogLevel)
+        {
+            var station = GetStationPoint(cityId, stationId);
+            station.SmogLevels.Add(smogLevel);
+            
+        }
+
         public IEnumerable<City> GetCities()
         {
             return _context.Cities.OrderBy(c => c.CityName).ToList();
@@ -46,6 +53,11 @@ namespace SmogInfo.Services
         public IEnumerable<StationPoint> GetStationPoints(int CityId)
         {
             return _context.StationPoints.Where(p => p.CityId == CityId).ToList();
+        }
+
+        public bool Save()
+        {
+            return (_context.SaveChanges() >= 0);
         }
     }
 }

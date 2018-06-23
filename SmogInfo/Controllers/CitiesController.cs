@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using SmogInfo.Model;
 using SmogInfo.Services;
 using System;
@@ -22,17 +23,8 @@ namespace SmogInfo.Controllers
         public IActionResult GetCities()
         {
             var cities = _smogInfoRepository.GetCities();
-            var result = new List<CitiesWithoutStationsDto>();
-
-            foreach(var i in cities)
-            {
-                result.Add(new CitiesWithoutStationsDto()
-                {
-                    ID = i.Id,
-                    CityName = i.CityName,
-
-                });
-            }
+            var result = Mapper.Map<IEnumerable<CitiesWithoutStationsDto>>(cities);
+            
 
             return Ok(result);
         }
@@ -44,29 +36,14 @@ namespace SmogInfo.Controllers
             if (city == null) return NotFound();
             if(includeStationPoints)
             {
-                var cityResult = new CitiesDto()
-                {
-                    ID = city.Id,
-                    CityName = city.CityName
-                };
-                foreach (var station in city.StationPoints)
-                    cityResult.StationPoints.Add(
-                        new StationPointDto()
-                        {
-                            ID = station.ID,
-                            StreetName = station.StreetName,
-
-                        });
+                var cityResult = Mapper.Map<CitiesDto>(city);
+                
                 return Ok(cityResult);
 
             } else
             {
-                var cityResult = new CitiesWithoutStationsDto()
-                {
-                    ID = city.Id,
-                    CityName = city.CityName
-                };
-
+                var cityResult = Mapper.Map<CitiesWithoutStationsDto>(city);
+               
                 return Ok(cityResult);
             }
                 

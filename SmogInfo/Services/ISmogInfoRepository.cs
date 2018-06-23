@@ -15,6 +15,9 @@ namespace SmogInfo.Services
         StationPoint GetStationPoint(int CityId,int StationId);
 
         IEnumerable<SmogLevel> GetSmogLevels(int CityId, int StationId);
+
+        void AddSmogLevel(int cityId, int stationId, SmogLevel smogLevel);
+        bool Save();
         
 
        
