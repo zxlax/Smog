@@ -5,15 +5,10 @@ using System.Threading.Tasks;
 
 namespace SmogInfo.Model
 {
-    public class StationPointDto
+    public class CitiesWithoutStationsDto
     {
         public int ID { get; set; }
 
-        public string StreetName { get; set; }
-
-        
-
-
-
+        public string CityName { get; set; }
     }
 }

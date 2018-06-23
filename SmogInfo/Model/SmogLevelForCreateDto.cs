@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace SmogInfo.Model
 {
-    public class SmogLevelDto
+    public class SmogLevelForCreateDto
     {
-        public int Id { get; set; }
 
         public DateTime DateTime { get; set; }
 
         public decimal PM10Concentration { get; set; }
+
 
     }
 }
