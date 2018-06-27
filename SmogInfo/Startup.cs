@@ -42,7 +42,7 @@ namespace SmogInfo
             services.AddScoped<ISmogInfoRepository,SmogInfoRepository>();
 
             services.AddHangfire(config=>
-            config.UseSqlServerStorage("Server=(LocalDB)\\MSSQLLocalDB;Integrated Security=true"));
+            config.UseSqlServerStorage(Configuration["connectionStrings:hangfireConnectionString"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,13 +71,6 @@ namespace SmogInfo
             app.UseHangfireServer();
             DataProcessing.Run();
             
-            
-            
-
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Working fine!");
-            });
         }
     }
 }

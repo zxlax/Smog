@@ -52,7 +52,9 @@ namespace SmogInfo.SmogLevelsLogic
 
         public static void CyclicTask(GIOSList GIOSList)
         {
-            RecurringJob.AddOrUpdate("id1", () => UploadDataToDatabase(GIOSList), Cron.Minutely);
+            RecurringJob.AddOrUpdate("id1", () => UploadDataToDatabase(GIOSList), Cron.Hourly);
+            RecurringJob.Trigger("id1");
+            BackgroundJob.Enqueue(() => UploadDataToDatabase(GIOSList));
         }
     }
 
