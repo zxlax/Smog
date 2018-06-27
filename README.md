@@ -22,5 +22,5 @@ return PM10 level in station by city id and station id
 api/cities/{cityid}/smogstation/{stationid}/level
 
 
-First deploy with working controllers and data model:
-https://hardy-ivy-207617.appspot.com
+Actual working version, collecting data from Warsaw:
+http://cleanair.azurewebsites.net
