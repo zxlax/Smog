@@ -13,9 +13,9 @@ namespace SmogInfo.SmogLevelsLogic
     {
 
 
-        public GIOSList ReturnDataFromJson()
+        public GIOSList ReturnDataFromJson(string URIString)
         {
-            string JsonFromApi = Get("http://api.gios.gov.pl/pjp-api/rest/data/getData/3584");
+            string JsonFromApi = Get(URIString);
 
             
             Console.WriteLine(JsonFromApi);

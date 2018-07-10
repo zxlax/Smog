@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Hangfire;
+﻿using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SmogInfo.Entities;
 using SmogInfo.Services;
 using SmogInfo.SmogLevelsLogic;
+using System.IO;
 
 namespace SmogInfo
 {
@@ -36,6 +32,7 @@ namespace SmogInfo
             services.AddMvc()
                 .AddMvcOptions(o=>o.OutputFormatters.Add(
                     new XmlDataContractSerializerOutputFormatter()));
+            
 
             var connectionString = Startup.Configuration["connectionStrings:smogInfoDBConnectionString"];
             services.AddDbContext<SmogInfoContext>(o=>o.UseSqlServer(connectionString));
@@ -48,6 +45,16 @@ namespace SmogInfo
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, SmogInfoContext smogInfoContext)
         {
+            app.Use(async (context, next) => {
+                await next();
+                if (context.Response.StatusCode == 404 &&
+                   !Path.HasExtension(context.Request.Path.Value) &&
+                   !context.Request.Path.Value.StartsWith("/api/"))
+                {
+                    context.Request.Path = "/index.html";
+                    await next();
+                }
+            });
             smogInfoContext.EnsureDataForContext();
             if (env.IsDevelopment())
             {
@@ -67,10 +74,13 @@ namespace SmogInfo
                 cfg.CreateMap<Model.SmogLevelForCreateDto, Entities.SmogLevel>();
                 });
             app.UseMvc();
+            app.UseMvcWithDefaultRoute();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseHangfireDashboard();
             app.UseHangfireServer();
             DataProcessing.Run();
-            
+
         }
     }
 }

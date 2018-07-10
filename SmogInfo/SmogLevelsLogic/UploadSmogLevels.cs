@@ -21,23 +21,18 @@ namespace SmogInfo.SmogLevelsLogic
         
         
 
-        public static void UploadDataToDatabase(GIOSList GIOSList)
+        public static void UploadDataToDatabase(string URIToUpdate, string JsonToUpdate)
         {
 
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:61614/api/cities/1/smogstation/1/level");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(URIToUpdate);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
-            string json = JsonConvert.SerializeObject(new SmogLevelForCreateDto()
-            {
-                DateTime = GIOSList.Values.ElementAt(1).Date,
-                PM10Concentration = GIOSList.Values.ElementAt(1).Value.Value,
-
-            });
+           
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
                
-                streamWriter.Write(json);
+                streamWriter.Write(JsonToUpdate);
                 streamWriter.Flush();
                 streamWriter.Close();
             }
@@ -52,9 +47,14 @@ namespace SmogInfo.SmogLevelsLogic
 
         public static void CyclicTask(GIOSList GIOSList)
         {
-            RecurringJob.AddOrUpdate("id1", () => UploadDataToDatabase(GIOSList), Cron.Hourly);
-            RecurringJob.Trigger("id1");
-            BackgroundJob.Enqueue(() => UploadDataToDatabase(GIOSList));
+            string json = JsonConvert.SerializeObject(new SmogLevelForCreateDto()
+            {
+                DateTime = GIOSList.Values.ElementAt(2).Date,
+                PM10Concentration = GIOSList.Values.ElementAt(2).Value.Value,
+
+            });
+            UploadDataToDatabase("http://localhost:61614/api/cities/1/smogstation/1/level",json);
+            
         }
     }
 
