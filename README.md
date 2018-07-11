@@ -1,5 +1,14 @@
 # SmogInfo
-App using ASP.NET Core 2.1 to collect and provide data about PM10 concentration in Warsaw
+
+Actual version, collecting data from Warsaw:
+http://cleanair.azurewebsites.net
+
+Project in which im trying collect smog data from API's and present them in simple Angular app.
+
+Next step is set up my own sensor and update database instead of taking data from APIs
+
+
+
 
 return all cities, their stations and PM10 level
 
@@ -21,6 +30,3 @@ return PM10 level in station by city id and station id
 
 api/cities/{cityid}/smogstation/{stationid}/level
 
-
-Actual working version, collecting data from Warsaw:
-http://cleanair.azurewebsites.net
