@@ -6,17 +6,25 @@ import {NgbModule} from  '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { ChartComponent } from './chart/chart.component';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChartComponent,
+    
+    
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+  
   ],
   providers: [AppComponent],
   bootstrap: [AppComponent]

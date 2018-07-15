@@ -79,7 +79,7 @@ namespace SmogInfo
             app.UseStaticFiles();
             app.UseHangfireDashboard();
             app.UseHangfireServer();
-            DataProcessing.Run();
+            //DataProcessing.Run();
 
         }
     }
