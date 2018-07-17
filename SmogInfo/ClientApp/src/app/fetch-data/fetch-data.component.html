@@ -1,0 +1,22 @@
+<h1>Smog result</h1>
+
+<p>Data from sensors:</p>
+
+<p *ngIf="!smog"><em>Loading...</em></p>
+
+<table class='table' *ngIf="smog">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>PM10Concentration (µg/m<sup>3</sup>)</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let smog of smog">
+      <td>{{ smog.dateTime|convertToSpaces:'T' }}</td>
+      <td>{{ smog.pM10Concentration  }}</td>
+     
+    </tr>
+  </tbody>
+</table>

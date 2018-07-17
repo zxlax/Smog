@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27428.2015
+VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmogInfo", "SmogInfo\SmogInfo.csproj", "{3B36A2F7-63DA-42C8-BF0F-E12172FF7B9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmogInfo", "SmogInfo\SmogInfo.csproj", "{85C202EE-B3CC-4032-B3C3-652E3DDDBA2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3B36A2F7-63DA-42C8-BF0F-E12172FF7B9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B36A2F7-63DA-42C8-BF0F-E12172FF7B9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B36A2F7-63DA-42C8-BF0F-E12172FF7B9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B36A2F7-63DA-42C8-BF0F-E12172FF7B9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85C202EE-B3CC-4032-B3C3-652E3DDDBA2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C202EE-B3CC-4032-B3C3-652E3DDDBA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C202EE-B3CC-4032-B3C3-652E3DDDBA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C202EE-B3CC-4032-B3C3-652E3DDDBA2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {93F449E0-941A-4BD8-9767-942D9F754518}
+		SolutionGuid = {407B4A37-07CD-4BD3-AFDD-9FFA23F5462A}
 	EndGlobalSection
 EndGlobal
