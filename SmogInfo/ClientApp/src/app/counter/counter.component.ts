@@ -9,6 +9,9 @@ import { GlobalsService } from '../globals.service';
 })
 export class CounterComponent {
 
+  public IsChartShown:boolean = false;
+  public ShowChart():void {this.IsChartShown = !this.IsChartShown;}
+
   
  
 

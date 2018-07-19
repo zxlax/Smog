@@ -24,21 +24,36 @@ drawChart(): void
 
 
   let dataPoints = [];
-	let y = 1;		
+		
 	for ( var i = 0; i < this.smog.length; i++ ) {		  
 		
 		dataPoints.push({ y: this.smog[i].pM10Concentration});
+		//dataPoints.push({ x: this.smog[i].dateTime});
+
 		
-		y += 1;	
+			
 	}
-	console.log(dataPoints);
+	
 	let chart = new CanvasJS.Chart("chartContainer", {
 		zoomEnabled: true,
 		animationEnabled: true,
 		exportEnabled: true,
-		title: {
-			
+		title: {},
+		axisX:{
+			//valueFormatString: "DD MMM",
+			crosshair: {
+				enabled: true,
+				snapToDataPoint: true
+			}
 		},
+		axisY: {
+			title: "µg/m^3",
+			crosshair: {
+				enabled: true
+			}
+		},
+			
+		
 		subtitles:[{
 			
 		}],
