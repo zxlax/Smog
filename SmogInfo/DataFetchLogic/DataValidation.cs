@@ -46,7 +46,7 @@ namespace SmogInfo.DataFetchLogic
             return data;
         }
 
-        public IEnumerable<SmogLevel> CompareData(int cityId, int stationId)
+        public IEnumerable<SmogLevel> DataFromDatabase(int cityId, int stationId)
         {
             var levels = _smogInfoRepository.GetSmogLevels(cityId, stationId);
             return levels;
@@ -54,15 +54,29 @@ namespace SmogInfo.DataFetchLogic
 
         public IEnumerable<SmogLevel> ActualValidation(GIOSList list, IEnumerable<SmogLevel> levels)
         {
-            var newList = TranslateDataToSmogLevel(list);
+            IEnumerable<SmogLevel> smogs = TranslateDataToSmogLevel(list);
 
-            List<SmogLevel> endList = new List<SmogLevel>();
+            var newItems = smogs.Where(x => !levels.Any(y => x.DateTime == y.DateTime));
 
-            //foreach()
 
-            throw new NotImplementedException();
+            return newItems;
+            
+
         }
 
+
+
+
+        public void testAdd(IEnumerable<SmogLevel> levels)
+        {
+            foreach (var item in levels)
+            {
+                _smogInfoRepository.AddSmogLevel(1, 1, item);
+                _smogInfoRepository.Save();
+            }
+            
+        }
+        
 
 
     }
