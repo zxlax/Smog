@@ -12,6 +12,7 @@ namespace SmogInfo.DataFetchLogic
     public class DataValidation
     {
         private ISmogInfoRepository _smogInfoRepository;
+
         public DataValidation(ISmogInfoRepository smogInfoRepository)
         {
             _smogInfoRepository = smogInfoRepository;
@@ -52,9 +53,8 @@ namespace SmogInfo.DataFetchLogic
             return levels;
         }
 
-        public IEnumerable<SmogLevel> ActualValidation(GIOSList list, IEnumerable<SmogLevel> levels)
+        public IEnumerable<SmogLevel> ValidateData(IEnumerable<SmogLevel> smogs, IEnumerable<SmogLevel> levels)
         {
-            IEnumerable<SmogLevel> smogs = TranslateDataToSmogLevel(list);
 
             var newItems = smogs.Where(x => !levels.Any(y => x.DateTime == y.DateTime));
 
@@ -67,15 +67,6 @@ namespace SmogInfo.DataFetchLogic
 
 
 
-        public void testAdd(IEnumerable<SmogLevel> levels)
-        {
-            foreach (var item in levels)
-            {
-                _smogInfoRepository.AddSmogLevel(1, 1, item);
-                _smogInfoRepository.Save();
-            }
-            
-        }
         
 
 

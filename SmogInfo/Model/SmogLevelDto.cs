@@ -9,7 +9,7 @@ namespace SmogInfo.Model
     {
         public int Id { get; set; }
 
-        public DateTime DateTime { get; set; }
+        public DateTime DateTime { get; set; } 
 
         public decimal PM10Concentration { get; set; }
 

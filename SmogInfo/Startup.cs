@@ -43,8 +43,8 @@ namespace SmogInfo
             services.AddDbContext<SmogInfoContext>(o => o.UseSqlServer(connectionString));
             services.AddScoped<ISmogInfoRepository, SmogInfoRepository>();
 
-            services.AddHangfire(config =>
-            config.UseSqlServerStorage(Configuration["connectionStrings:hangfireConnectionString"]));
+           
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -94,15 +94,11 @@ namespace SmogInfo
             });
 
 
-            app.UseHangfireDashboard().UseHangfireServer();
+            
+            var c = new ReccuringTasks();
+            c.Task(smogInfoContext, "http://api.gios.gov.pl/pjp-api/rest/data/getData/3584", 1, 1);
+           
 
-            ///////////////////////
-            ISmogInfoRepository smogInfoRepository = new SmogInfoRepository(smogInfoContext);
-            var a = new DataFetch();
-            var b = new DataValidation(smogInfoRepository);
-            b.testAdd(b.ActualValidation(b.CheckForNull(b.Deserialize(a.ReturnData("http://api.gios.gov.pl/pjp-api/rest/data/getData/3584"))), smogInfoRepository.GetSmogLevels(1, 1)));
-
-            Console.WriteLine("DONE!!!!!!!!!");
 
         }
     }
