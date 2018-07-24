@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { ChartComponent } from './counter/chart/chart.component'
 import { GlobalsService } from './globals.service';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { GlobalsService } from './globals.service';
     CounterComponent,
     FetchDataComponent,
     ConvertToSpacesPipe,
-    ChartComponent
+    ChartComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,6 +33,8 @@ import { GlobalsService } from './globals.service';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'contact', component: ContactComponent },
+      
     ])
   ],
   providers: [GlobalsService],

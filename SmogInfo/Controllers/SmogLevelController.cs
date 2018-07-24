@@ -24,7 +24,7 @@ namespace SmogInfo.Controllers
             var levels = _smogInfoRepository.GetSmogLevels(cityId, stationId);
             if (levels == null) return NotFound();
             var result = Mapper.Map<IEnumerable<SmogLevelDto>>(levels);
-            
+           
             return Ok(result);
         }
         [HttpPost("{cityId}/smogStation/{stationId}/level")]

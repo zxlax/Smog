@@ -17,6 +17,11 @@ li.link-active a:focus {
     left: 0;
     right: 0;
     z-index: 1;
+    background-color: #9c9b9b
+}
+.navbar-inverse {
+    background-color: #4F4F4F;
+    border-color: #080808;
 }
 
 @media (min-width: 768px) {
@@ -24,6 +29,7 @@ li.link-active a:focus {
     .main-nav {
         height: 100%;
         width: calc(25% - 20px);
+        
     }
     .navbar {
         border-radius: 0px;

@@ -1,1 +1,2 @@
-<app-chart></app-chart>
+<button class='btn btn-primary' (click)='ShowChart()' style='margin:20px;'>{{IsChartShown ? 'Hide' : 'Show'}} PM10 Chart</button>
+<app-chart *ngIf='IsChartShown'></app-chart>

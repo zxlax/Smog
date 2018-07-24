@@ -8,6 +8,8 @@ using Hangfire;
 using Microsoft.EntityFrameworkCore;
 using SmogInfo.Entities;
 using SmogInfo.Services;
+using SmogInfo.DataFetchLogic;
+using System;
 
 namespace SmogInfo
 {
@@ -41,8 +43,8 @@ namespace SmogInfo
             services.AddDbContext<SmogInfoContext>(o => o.UseSqlServer(connectionString));
             services.AddScoped<ISmogInfoRepository, SmogInfoRepository>();
 
-            services.AddHangfire(config =>
-            config.UseSqlServerStorage(Configuration["connectionStrings:hangfireConnectionString"]));
+           
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,9 +60,7 @@ namespace SmogInfo
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseSpaStaticFiles();
+            app.UseHttpsRedirection().UseStaticFiles().UseSpaStaticFiles();
 
             app.UseMvc(routes =>
             {
@@ -81,11 +81,9 @@ namespace SmogInfo
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
-
-
+            
             smogInfoContext.EnsureDataForContext();
-
-           
+            
             app.UseStatusCodePages();
             AutoMapper.Mapper.Initialize(cfg => {
                 cfg.CreateMap<Entities.City, Model.CitiesWithoutStationsDto>();
@@ -96,8 +94,12 @@ namespace SmogInfo
             });
 
 
-            app.UseHangfireDashboard();
-            app.UseHangfireServer();
+            
+            var c = new ReccuringTasks();
+            c.Task(smogInfoContext, "http://api.gios.gov.pl/pjp-api/rest/data/getData/3584", 1, 1);
+           
+
+
         }
     }
 }
