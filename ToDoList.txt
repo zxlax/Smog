@@ -1,7 +1,8 @@
 Small upgrades:
-1. Reverse Data in datafetch list to display them from newest to oldest
-2. Add average PM10 Concentration for previous 24 hours
-3. Add red line on charts to display alarm level
+1. Reverse Data in datafetch list to display them from newest to oldest: done
+2. Add average PM10 Concentration for previous 24 hours: done
+3. Add red line on charts to display alarm level: done
+4. Add dates and time to x axis
 
 Big guns:
 1. Add admin panel with CRUD to api
