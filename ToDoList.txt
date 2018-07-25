@@ -1,0 +1,3 @@
+1. Reverse Data in datafetch list to display them from newest to oldest
+2. Add average PM10 Concentration for previous 24 hours
+3. Add red line on charts to display alarm level
