@@ -22,13 +22,16 @@ export class ChartComponent implements OnInit {
 drawChart(): void 
 {
 
-
+	let warningLevel =[];
   let dataPoints = [];
+  let dateTime =[];
+  
 		
 	for ( var i = 0; i < this.smog.length; i++ ) {		  
 		
 		dataPoints.push({ y: this.smog[i].pM10Concentration});
-		//dataPoints.push({ x: this.smog[i].dateTime});
+		warningLevel.push({y:50});
+		dateTime.push({ y:this.smog[i].dateTime});
 
 		
 			
@@ -40,6 +43,9 @@ drawChart(): void
 		exportEnabled: true,
 		title: {},
 		axisX:{
+			labelFormatter: function(e){
+				return  "x: " + e.value;
+			},
 			//valueFormatString: "DD MMM",
 			crosshair: {
 				enabled: true,
@@ -61,7 +67,12 @@ drawChart(): void
 		{
 			type: "line",                
 			dataPoints: dataPoints
-		}]
+		},
+		{
+			type: "line",                
+			dataPoints: warningLevel
+		}
+	]
 	});
 		
 	chart.render();

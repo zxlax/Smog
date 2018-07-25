@@ -14,8 +14,25 @@ import { IStation } from '../shared/IStation';
 export class FetchDataComponent  {
   
   public smog: ISmog[];
+  public reversedSmog: ISmog[];
+
   public city: ICity[];
   public station:IStation[];
+
+  public average:number;
+
+  public CalculateAverage(list: ISmog[]):number
+  {
+     let sum=0;
+    for (let index = 0; index < 24; index++)
+     {
+      sum+=list[index].pM10Concentration;
+    }
+
+    return sum/24;
+  }
+
+  
 
   
   constructor(private globals:GlobalsService) 
@@ -23,6 +40,10 @@ export class FetchDataComponent  {
     this.smog = globals.smog;
     this.city = globals.city;
     this.station = globals.station;
+    
+    this.reversedSmog = this.smog.map(a => Object.assign({}, a));
+    this.reversedSmog.reverse();
+    this.average = this.CalculateAverage(this.reversedSmog);
   }
 
 }

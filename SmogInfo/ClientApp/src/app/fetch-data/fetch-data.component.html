@@ -1,9 +1,10 @@
 <h1>Smog result</h1>
-<div *ngFor="let city of city"> {{city.cityName}}</div>
-<div *ngFor="let station of station"> {{station.streetName}}</div>
+<div *ngFor="let city of city">City: {{city.cityName}}</div>
+<div *ngFor="let station of station">Station: {{station.streetName}}</div>
 
 
 <p>Data from sensors:</p>
+Average from previous 24 hours: {{average}} µg/m<sup>3</sup>
 
 <p *ngIf="!smog"><em>Loading...</em></p>
 
@@ -16,8 +17,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let smog of smog">
-      <td>{{ smog.dateTime|convertToSpaces:'T' }}</td>
+    <tr *ngFor="let smog of reversedSmog">
+      <td>{{ smog.dateTime|convertToSpaces:'T'|cutEnd: 3 }}</td>
       <td>{{ smog.pM10Concentration  }}</td>
      
     </tr>

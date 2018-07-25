@@ -13,6 +13,7 @@ import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { ChartComponent } from './counter/chart/chart.component'
 import { GlobalsService } from './globals.service';
 import { ContactComponent } from './contact/contact.component';
+import { CutEndPipe } from './shared/cut-end.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ContactComponent } from './contact/contact.component';
     FetchDataComponent,
     ConvertToSpacesPipe,
     ChartComponent,
-    ContactComponent
+    ContactComponent,
+    CutEndPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
