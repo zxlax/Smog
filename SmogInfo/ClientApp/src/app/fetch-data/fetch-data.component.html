@@ -4,7 +4,9 @@
 
 
 <p>Data from sensors:</p>
-Average from previous 24 hours: {{average}} µg/m<sup>3</sup>
+Average PM10 from previous 24 hours: {{averagePm10}} µg/m<sup>3</sup><br>
+Average PM25 from previous 24 hours: {{averagePm25}} µg/m<sup>3</sup>
+
 
 <p *ngIf="!smog"><em>Loading...</em></p>
 
@@ -12,7 +14,9 @@ Average from previous 24 hours: {{average}} µg/m<sup>3</sup>
   <thead>
     <tr>
       <th>Date</th>
-      <th>PM10Concentration (µg/m<sup>3</sup>)</th>
+      <th>PM 10 Concentration (µg/m<sup>3</sup>)</th>
+      <th>PM 2.5 Concentration (µg/m<sup>3</sup>)</th>
+
       
     </tr>
   </thead>
@@ -20,6 +24,8 @@ Average from previous 24 hours: {{average}} µg/m<sup>3</sup>
     <tr *ngFor="let smog of reversedSmog">
       <td>{{ smog.dateTime|convertToSpaces:'T'|cutEnd: 3 }}</td>
       <td>{{ smog.pM10Concentration  }}</td>
+      <td>{{ smog.pM25Concentration  }}</td>
+
      
     </tr>
   </tbody>

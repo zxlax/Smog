@@ -11,6 +11,8 @@ import { GlobalsService } from '../../globals.service';
 export class ChartComponent implements OnInit {
 	
 	 smog: ISmog[] ;
+	 chartVar
+
 	
 
 	 constructor(private globals:GlobalsService) {this.smog = globals.smog}

@@ -15,7 +15,7 @@ namespace SmogInfo.DataFetchLogic
             _smogInfoContext = smogInfoContext;
         }
 
-        public void StartFrequentDataOperating(string url, int city, int station)
+        public void StartFrequentDataOperating(string url10,string url25, int city, int station)
         {
             ISmogInfoRepository smogInfoRepository = new SmogInfoRepository(this._smogInfoContext);
 
@@ -25,17 +25,24 @@ namespace SmogInfo.DataFetchLogic
 
             var dataUpload = new DataUpload(smogInfoRepository);
 
-            var data = dataFetch.ReturnData(url);
+            var data10 = dataFetch.ReturnData(url10);
+            var data25 = dataFetch.ReturnData(url25);
 
-            var deserializedData = dataValidation.Deserialize(data);
+            var deserializedData10 = dataValidation.Deserialize(data10);
+            var deserializedData25 = dataValidation.Deserialize(data25);
 
-            var checkedForNull = dataValidation.CheckForNull(deserializedData);
+            var checkedForNull10 = dataValidation.CheckForNull(deserializedData10);
+            var checkedForNull25 = dataValidation.CheckForNull(deserializedData25);
 
-            var translatedData = dataValidation.TranslateDataToSmogLevel(checkedForNull);
+            var translatedData10 = dataValidation.TranslateDataToSmogLevel10(checkedForNull10);
+            var translatedData25 = dataValidation.TranslateDataToSmogLevel25(checkedForNull25);
+
+            var joinedData = dataValidation.JoinLevels(translatedData10, translatedData25);
+            //joined data tu powinno byc
 
             var dataFromDatabase = smogInfoRepository.GetSmogLevels(city, station);
 
-            var endData = dataValidation.ValidateData(translatedData, dataFromDatabase);
+            var endData = dataValidation.ValidateData(joinedData, dataFromDatabase);
 
             dataUpload.UploadData(endData);
 

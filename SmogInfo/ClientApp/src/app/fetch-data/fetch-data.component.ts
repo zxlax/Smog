@@ -19,14 +19,26 @@ export class FetchDataComponent  {
   public city: ICity[];
   public station:IStation[];
 
-  public average:number;
+  public averagePm10:number;
+  public averagePm25:number;
 
-  public CalculateAverage(list: ISmog[]):number
+
+  public CalculateAveragePm10(list: ISmog[]):number
   {
      let sum=0;
     for (let index = 0; index < 24; index++)
      {
       sum+=list[index].pM10Concentration;
+    }
+
+    return sum/24;
+  }
+  public CalculateAveragePm25(list: ISmog[]):number
+  {
+     let sum=0;
+    for (let index = 0; index < 24; index++)
+     {
+      sum+=list[index].pM25Concentration;
     }
 
     return sum/24;
@@ -43,7 +55,9 @@ export class FetchDataComponent  {
     
     this.reversedSmog = this.smog.map(a => Object.assign({}, a));
     this.reversedSmog.reverse();
-    this.average = this.CalculateAverage(this.reversedSmog);
+    this.averagePm10 = this.CalculateAveragePm10(this.reversedSmog);
+    this.averagePm25 = this.CalculateAveragePm25(this.reversedSmog);
+
   }
 
 }

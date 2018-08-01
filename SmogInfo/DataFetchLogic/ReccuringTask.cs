@@ -10,11 +10,11 @@ namespace SmogInfo.DataFetchLogic
     {
       
 
-        public void Task(SmogInfoContext smogInfoContext, string url, int city, int station)
+        public void Task(SmogInfoContext smogInfoContext, string url10,string url25, int city, int station)
         {
 
             var a = new DataOperator(smogInfoContext);
-            a.StartFrequentDataOperating(url, 1, 1);
+            a.StartFrequentDataOperating(url10,url25, 1, 1);
 
         }
 

@@ -17,6 +17,8 @@ namespace SmogInfo.Entities
 
         public decimal PM10Concentration { get; set; }
 
+        public decimal PM25Concentration { get; set; }
+
         [ForeignKey("StationPointId")]
         public StationPoint StationPoint { get; set; }
 

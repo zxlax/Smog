@@ -94,10 +94,11 @@ namespace SmogInfo
             });
 
 
-            
+
             var c = new ReccuringTasks();
-            c.Task(smogInfoContext, "http://api.gios.gov.pl/pjp-api/rest/data/getData/3584", 1, 1);
-           
+            c.Task(smogInfoContext, "http://api.gios.gov.pl/pjp-api/rest/data/getData/3584",
+                "http://api.gios.gov.pl/pjp-api/rest/data/getData/3585", 1, 1);
+
 
 
         }
